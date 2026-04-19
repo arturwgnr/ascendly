@@ -1,0 +1,166 @@
+.study-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  align-items: start;
+}
+
+.study-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.study-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Session Form ──────────── */
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.session-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ─── Difficulty Picker ─────── */
+
+.diff-picker {
+  display: flex;
+  gap: 6px;
+}
+
+.diff-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.diff-btn:hover,
+.diff-btn.active {
+  border-color: var(--color-primary);
+  background: rgba(124, 108, 242, 0.15);
+  color: var(--color-primary);
+}
+
+/* ─── Session List ──────────── */
+
+.session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.session-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.session-item:hover {
+  border-color: var(--color-primary);
+}
+
+.session-topic {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.session-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+.session-hours {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.session-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: var(--transition);
+}
+.session-item:hover .session-actions {
+  opacity: 1;
+}
+
+/* ─── Metrics ───────────────── */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.metric-box {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.metric-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.metric-lbl {
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* ─── Month History Chart ───── */
+
+.chart-wrap {
+  width: 100%;
+  height: 180px;
+}
+
+/* ─── Goal Bar ──────────────── */
+
+.goal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-edit-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}

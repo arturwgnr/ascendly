@@ -1,0 +1,29 @@
+Build a single-page landing page for a web app called Ascendly. This is a full-stack self-improvement and study tracking app. The landing page must feel like a real SaaS product from a top-tier company — modern, premium, and conversion-focused.
+Brand
+
+Name: Ascendly
+Icon/logo: ᨒ
+
+Tone: premium, epic, confident — not corporate
+
+Headline: "Stop guessing. Start growing."
+Page structure:
+
+Navbar — logo (ᨒ Ascendly) + CTA button "Get Started"
+Hero — headline, subtext explaining the product in one sentence, CTA, subtle animated background (particles or gradient motion)
+Pain point section — 3 cards showing real user problems ("You studied 2h but can't remember if it was enough", "You don't know where your time really goes", "Your goals exist but your days don't reflect them")
+Features section — 4 feature blocks with icon, name, and short real-use description: Study Tracker, Daily Growth, Task Board, Gamification
+How it works — 3 steps, very visual: Log your day / Track your habits / Watch your progress
+App preview — a stylized mockup or UI preview section (can be CSS-only representation of the dashboard)
+Final CTA — bold, full-width section: "Your next level starts today." + button
+
+Technical requirements:
+
+Single HTML file with internal CSS and JS
+Smooth scroll animations (Intersection Observer or CSS keyframes)
+Micro-interactions on buttons and cards (hover states, subtle transforms)
+Fully responsive (mobile + desktop)
+No external frameworks — vanilla HTML, CSS, JS only
+Glassmorphism cards, gradient text on headlines, animated gradient background in hero
+
+Make it feel alive. Every section should have purpose.

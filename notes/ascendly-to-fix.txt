@@ -1,0 +1,13 @@
+Pontos pra conserto:
+Growth: Todays mission nao ta sendo interativa nem atualizada no dashboard. Mesmo indo na aba Growth e marcando algumas opcoes como feitas, isso nao reflete no dashboard
+
+Tasks: Tasks nao refletem no dashboard
+
+Aparencia:
+Heatmap - Heatmap fundo 
+particulas muito rapidas
+
+UX:
+Logout button topbar
+change password
+redirect landing

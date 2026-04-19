@@ -1,0 +1,55 @@
+:root {
+  /* ─── Brand ─────────────────────────── */
+  --color-primary:       #7c6cf2;
+  --color-primary-dim:   #5a4fd6;
+  --color-secondary:     #3ecfcf;
+  --color-accent:        #f2a96c;
+
+  /* ─── Backgrounds ───────────────────── */
+  --color-bg:            #0e0e14;
+  --color-bg-elevated:   #15151e;
+  --color-bg-card:       #1a1a26;
+  --color-bg-hover:      #20202e;
+  --color-border:        #2a2a3d;
+
+  /* ─── Text ──────────────────────────── */
+  --color-text:          #e8e8f0;
+  --color-text-muted:    #7878a0;
+  --color-text-dim:      #4a4a6a;
+
+  /* ─── Semantic ──────────────────────── */
+  --color-success:       #4ade80;
+  --color-warning:       #fbbf24;
+  --color-danger:        #f87171;
+  --color-info:          #60a5fa;
+
+  /* ─── Heatmap ───────────────────────── */
+  --color-heat-0:        #1a1a26;
+  --color-heat-1:        #2d1f6e;
+  --color-heat-2:        #4a30a8;
+  --color-heat-3:        #6d50e0;
+  --color-heat-4:        #9b7fff;
+
+  /* ─── Day Type ──────────────────────── */
+  --color-day-work:      var(--color-primary);
+  --color-day-off:       var(--color-text-muted);
+
+  /* ─── Typography ────────────────────── */
+  --font-sans:           'Inter', system-ui, sans-serif;
+  --font-mono:           'JetBrains Mono', monospace;
+
+  /* ─── Sizing ────────────────────────── */
+  --sidebar-width:       220px;
+  --topbar-height:       56px;
+  --radius-sm:           6px;
+  --radius-md:           10px;
+  --radius-lg:           16px;
+
+  /* ─── Shadows ───────────────────────── */
+  --shadow-sm:           0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:           0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-glow:         0 0 20px rgba(124, 108, 242, 0.25);
+
+  /* ─── Transitions ───────────────────── */
+  --transition:          all 0.18s ease;
+}

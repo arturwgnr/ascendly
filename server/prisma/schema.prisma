@@ -1,0 +1,216 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── AUTH ────────────────────────────────────────────────────────────────────
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  refreshTokens  RefreshToken[]
+  studySessions  StudySession[]
+  monthGoals     MonthGoal[]
+  monthSnapshots MonthSnapshot[]
+  dayEntries     DayEntry[]
+  habits         Habit[]
+  habitLogs      HabitLog[]
+  tasks          Task[]
+  allocations    TaskAllocation[]
+  pillars        Pillar[]
+  gamification   Gamification?
+  userBadges     UserBadge[]
+  settings       UserSettings?
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ─── STUDY ───────────────────────────────────────────────────────────────────
+
+model StudySession {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  date       DateTime @db.Date
+  topic      String
+  hours      Float
+  difficulty Int
+  note       String?
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model MonthGoal {
+  id          Int   @id @default(autoincrement())
+  userId      Int
+  year        Int
+  month       Int
+  targetHours Float
+  user        User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, year, month])
+}
+
+model MonthSnapshot {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  year       Int
+  month      Int
+  totalHours Float
+  avgPerDay  Float
+  topTopics  Json
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, year, month])
+}
+
+// ─── GROWTH ──────────────────────────────────────────────────────────────────
+
+model Pillar {
+  id     Int    @id @default(autoincrement())
+  userId Int
+  label  String
+  order  Int
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DayEntry {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  date         DateTime @db.Date
+  dayType      DayType  @default(WORK)
+  noteScore    Int?
+  noteText     String?
+  missionsDone Int[]
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+}
+
+model Habit {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  label      String
+  type       HabitType
+  isArchived Boolean   @default(false)
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  logs       HabitLog[]
+}
+
+model HabitLog {
+  id      Int      @id @default(autoincrement())
+  userId  Int
+  habitId Int
+  date    DateTime @db.Date
+  doneAt  DateTime?
+  habit   Habit    @relation(fields: [habitId], references: [id], onDelete: Cascade)
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([habitId, date])
+}
+
+// ─── TASKS ───────────────────────────────────────────────────────────────────
+
+model Task {
+  id          Int            @id @default(autoincrement())
+  userId      Int
+  title       String
+  description String?
+  status      TaskStatus     @default(BACKLOG)
+  priority    TaskPriority   @default(MEDIUM)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  allocations TaskAllocation[]
+}
+
+model TaskAllocation {
+  id         Int      @id @default(autoincrement())
+  taskId     Int
+  userId     Int
+  weekStart  DateTime @db.Date
+  dayOfWeek  Int
+  task       Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([taskId, weekStart])
+}
+
+// ─── GAMIFICATION ────────────────────────────────────────────────────────────
+
+model Gamification {
+  id             Int       @id @default(autoincrement())
+  userId         Int       @unique
+  xp             Int       @default(0)
+  level          Int       @default(1)
+  streak         Int       @default(0)
+  lastActiveDate DateTime?
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Badge {
+  id         Int         @id @default(autoincrement())
+  key        String      @unique
+  label      String
+  icon       String
+  xpReward   Int         @default(0)
+  userBadges UserBadge[]
+}
+
+model UserBadge {
+  id       Int      @id @default(autoincrement())
+  userId   Int
+  badgeId  Int
+  earnedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge    Badge    @relation(fields: [badgeId], references: [id])
+
+  @@unique([userId, badgeId])
+}
+
+// ─── SETTINGS ────────────────────────────────────────────────────────────────
+
+model UserSettings {
+  id             Int     @id @default(autoincrement())
+  userId         Int     @unique
+  themeOverrides Json?
+  timezone       String  @default("UTC")
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ─── ENUMS ───────────────────────────────────────────────────────────────────
+
+enum DayType {
+  WORK
+  OFF
+}
+
+enum HabitType {
+  GOOD
+  BAD
+}
+
+enum TaskStatus {
+  BACKLOG
+  IN_PROGRESS
+  DONE
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}

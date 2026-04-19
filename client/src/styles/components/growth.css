@@ -1,0 +1,167 @@
+.growth-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+.growth-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.growth-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Day Type Toggle ─────── */
+
+.day-type-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.day-type-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: var(--transition);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+  text-align: center;
+}
+.day-type-btn.active-work {
+  border-color: var(--color-primary);
+  background: rgba(124, 108, 242, 0.1);
+  color: var(--color-primary);
+}
+.day-type-btn.active-off {
+  border-color: var(--color-text-muted);
+  background: rgba(120, 120, 160, 0.1);
+  color: var(--color-text-muted);
+}
+
+/* ─── Missions ────────────── */
+
+.mission-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+.mission-row:hover {
+  border-color: var(--color-primary);
+}
+.mission-row.done {
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.05);
+}
+
+/* ─── Habits ─────────────── */
+
+.habits-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.habits-section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-dim);
+  margin-bottom: 4px;
+}
+
+.habit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.habit-row:hover {
+  border-color: var(--color-border);
+}
+
+.habit-check-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  transition: var(--transition);
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+}
+.habit-row.good .habit-check-btn.logged {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: #000;
+}
+.habit-row.bad .habit-check-btn.logged {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #fff;
+}
+.habit-check-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.habit-label {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.habit-time {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  font-family: var(--font-mono);
+}
+
+/* ─── Score Picker ───────── */
+
+.score-picker {
+  display: flex;
+  gap: 6px;
+}
+
+.score-btn {
+  flex: 1;
+  padding: 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+}
+.score-btn.active {
+  border-color: var(--color-primary);
+  background: rgba(124, 108, 242, 0.15);
+  color: var(--color-primary);
+}
