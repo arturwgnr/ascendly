@@ -34,6 +34,13 @@ export default function Register() {
 
   return (
     <div className="auth-page">
+      <nav className="auth-nav">
+        <Link to="/" className="auth-nav-brand">
+          <span className="auth-nav-brand-icon">ᨒ</span>
+          <span>Ascendly</span>
+        </Link>
+      </nav>
+      <div className="auth-main">
       <div className="auth-card">
         <div className="auth-brand">
           <span className="auth-brand-icon">ᨒ</span>
@@ -86,6 +93,7 @@ export default function Register() {
         <div className="auth-link-row">
           Already have an account? <Link to="/login">Sign in</Link>
         </div>
+      </div>
       </div>
     </div>
   );

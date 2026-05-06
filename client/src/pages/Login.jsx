@@ -28,6 +28,13 @@ export default function Login() {
 
   return (
     <div className="auth-page">
+      <nav className="auth-nav">
+        <Link to="/" className="auth-nav-brand">
+          <span className="auth-nav-brand-icon">ᨒ</span>
+          <span>Ascendly</span>
+        </Link>
+      </nav>
+      <div className="auth-main">
       <div className="auth-card">
         <div className="auth-brand">
           <span className="auth-brand-icon">ᨒ</span>
@@ -69,6 +76,7 @@ export default function Login() {
         <div className="auth-link-row">
           No account? <Link to="/register">Create one</Link>
         </div>
+      </div>
       </div>
     </div>
   );

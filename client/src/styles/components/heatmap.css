@@ -20,18 +20,20 @@
   width: 13px;
   height: 13px;
   border-radius: 2px;
-  background: var(--color-heat-0);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition);
   cursor: pointer;
   position: relative;
 }
 
-.heatmap-cell[data-level="1"] { background: var(--color-heat-1); }
-.heatmap-cell[data-level="2"] { background: var(--color-heat-2); }
-.heatmap-cell[data-level="3"] { background: var(--color-heat-3); }
-.heatmap-cell[data-level="4"] { background: var(--color-heat-4); }
+.heatmap-cell[data-level="1"] { background: var(--color-heat-1); border-color: transparent; }
+.heatmap-cell[data-level="2"] { background: var(--color-heat-2); border-color: transparent; }
+.heatmap-cell[data-level="3"] { background: var(--color-heat-3); border-color: transparent; }
+.heatmap-cell[data-level="4"] { background: var(--color-heat-4); border-color: transparent; }
 
 .heatmap-cell:hover {
+  border-color: var(--color-primary);
   outline: 1px solid var(--color-primary);
   outline-offset: 1px;
   z-index: 1;

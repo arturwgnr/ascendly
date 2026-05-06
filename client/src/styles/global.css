@@ -87,12 +87,14 @@ input, textarea, select {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: transparent !important;
   color: #fff;
+  border: 1px solid rgba(124, 108, 242, 0.4);
 }
 .btn-primary:hover {
   background: var(--color-primary-dim);
   box-shadow: var(--shadow-glow);
+  border-color: var(--color-primary);
 }
 
 .btn-ghost {

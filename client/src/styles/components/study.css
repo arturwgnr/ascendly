@@ -3,18 +3,21 @@
   grid-template-columns: 1fr 340px;
   gap: 16px;
   align-items: start;
+  min-width: 0;
 }
 
 .study-main {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 .study-sidebar {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 /* ─── Session Form ──────────── */

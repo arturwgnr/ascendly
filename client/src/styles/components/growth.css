@@ -3,18 +3,21 @@
   grid-template-columns: 1fr 300px;
   gap: 16px;
   align-items: start;
+  min-width: 0;
 }
 
 .growth-main {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 .growth-sidebar {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 /* ─── Day Type Toggle ─────── */
